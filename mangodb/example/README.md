@@ -1,5 +1,9 @@
 ## show dbs
 
+## creating db
+
+use db_name
+
 ## use a database
 
 use db
@@ -28,14 +32,9 @@ db.users.insertOne({fiels_name:value})
 ## update many
 
 db.user.updateMany({name:value},{$inc:{name:value}})
-
 db.user.updateMany({name:value},{$set:{name:value}}) ---{u can add new variable}
 
 ## Data types
-
-## delet
-
-db.users.deleteOne({name:value})
 
 ## temp collections it will create temp db
 
@@ -57,3 +56,12 @@ $lt,lte,gt,gte,eg,in.nin.neq
 db.users.find({rating:{$in:[8,9]}},{name:value})
 db.users.find({rating:{$in:[8,9]}},{name:value,\_id:0}) --- {cleaner code}
 ex : db.users.find({rating:{$in:[8,9]}},{comp:1,\_id:0,country:1}).limit(5).sort({rating:-1/+1}) --- {cleaner code}
+
+## delete
+
+db.users.deleteMany({age:{$gte:20}})
+db.users.deleteOne({name:value})
+
+## delet database
+
+db.dropDatabase()

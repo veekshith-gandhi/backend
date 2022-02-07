@@ -1,0 +1,766 @@
+veekshith@veekshith-HP-ENVY-15-Notebook-PC:~$ mangosh
+mangosh: command not found
+veekshith@veekshith-HP-ENVY-15-Notebook-PC:~$ mongosh
+Current Mongosh Log ID:	6200eafeba16a9d1e7b553ed
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.1.9
+Using MongoDB:		5.0.6
+Using Mongosh:		1.1.9
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting:
+   2022-02-04T17:57:45.918+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2022-02-04T17:57:55.878+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show collections
+
+test> show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+test> show dbs
+admin     41 kB
+config  36.9 kB
+local     41 kB
+masai   73.7 kB
+test> db.users.insertMany([{"id":1,"first_name":"Charles","last_name":"Simison","email":"csimison0@mapy.cz","gender":"Male","ip_address":"16.22.220.48","age":9},
+... {"id":2,"first_name":"Merilyn","last_name":"Stearndale","email":"mstearndale1@nymag.com","gender":"Female","ip_address":"164.109.21.41","age":7},
+... {"id":3,"first_name":"Nicolai","last_name":"Brigdale","email":"nbrigdale2@theguardian.com","gender":"Male","ip_address":"190.186.119.22","age":36},
+... {"id":4,"first_name":"Lainey","last_name":"Lansdown","email":"llansdown3@meetup.com","gender":"Female","ip_address":"123.61.34.209","age":57},
+... {"id":5,"first_name":"Laurie","last_name":"Trime","email":"ltrime4@hud.gov","gender":"Male","ip_address":"253.194.132.231","age":34},
+... {"id":6,"first_name":"Vasili","last_name":"Renehan","email":"vrenehan5@thetimes.co.uk","gender":"Female","ip_address":"96.203.207.105","age":31},
+... {"id":7,"first_name":"Becki","last_name":"Corsar","email":"bcorsar6@samsung.com","gender":"Female","ip_address":"42.192.237.1","age":5},
+... {"id":8,"first_name":"Udall","last_name":"Wasielewski","email":"uwasielewski7@comcast.net","gender":"Male","ip_address":"65.81.95.247","age":48},
+... {"id":9,"first_name":"Madlen","last_name":"Lemanu","email":"mlemanu8@ocn.ne.jp","gender":"Male","ip_address":"220.16.238.228","age":22},
+... {"id":10,"first_name":"Bekki","last_name":"Sumnall","email":"bsumnall9@imageshack.us","gender":"Female","ip_address":"100.251.70.152","age":11}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6200eb347860b412f8c1ae19"),
+    '1': ObjectId("6200eb347860b412f8c1ae1a"),
+    '2': ObjectId("6200eb347860b412f8c1ae1b"),
+    '3': ObjectId("6200eb347860b412f8c1ae1c"),
+    '4': ObjectId("6200eb347860b412f8c1ae1d"),
+    '5': ObjectId("6200eb347860b412f8c1ae1e"),
+    '6': ObjectId("6200eb347860b412f8c1ae1f"),
+    '7': ObjectId("6200eb347860b412f8c1ae20"),
+    '8': ObjectId("6200eb347860b412f8c1ae21"),
+    '9': ObjectId("6200eb347860b412f8c1ae22")
+  }
+}
+test> db.users.find()
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae19"),
+    id: 1,
+    first_name: 'Charles',
+    last_name: 'Simison',
+    email: 'csimison0@mapy.cz',
+    gender: 'Male',
+    ip_address: '16.22.220.48',
+    age: 9
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1a"),
+    id: 2,
+    first_name: 'Merilyn',
+    last_name: 'Stearndale',
+    email: 'mstearndale1@nymag.com',
+    gender: 'Female',
+    ip_address: '164.109.21.41',
+    age: 7
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1e"),
+    id: 6,
+    first_name: 'Vasili',
+    last_name: 'Renehan',
+    email: 'vrenehan5@thetimes.co.uk',
+    gender: 'Female',
+    ip_address: '96.203.207.105',
+    age: 31
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1f"),
+    id: 7,
+    first_name: 'Becki',
+    last_name: 'Corsar',
+    email: 'bcorsar6@samsung.com',
+    gender: 'Female',
+    ip_address: '42.192.237.1',
+    age: 5
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11
+  }
+]
+test> db.users.findOne({first_name:"bekki"})
+null
+test> db.users.findOne({first_name"bekki})
+[2]+  Stopped                 mongosh
+veekshith@veekshith-HP-ENVY-15-Notebook-PC:~$ mangosh
+mangosh: command not found
+veekshith@veekshith-HP-ENVY-15-Notebook-PC:~$ mongosh
+Current Mongosh Log ID:	6200ebb4d4ee6907d0ff663b
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.1.9
+Using MongoDB:		5.0.6
+Using Mongosh:		1.1.9
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting:
+   2022-02-04T17:57:45.918+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2022-02-04T17:57:55.878+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> db.users.find()
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae19"),
+    id: 1,
+    first_name: 'Charles',
+    last_name: 'Simison',
+    email: 'csimison0@mapy.cz',
+    gender: 'Male',
+    ip_address: '16.22.220.48',
+    age: 9
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1a"),
+    id: 2,
+    first_name: 'Merilyn',
+    last_name: 'Stearndale',
+    email: 'mstearndale1@nymag.com',
+    gender: 'Female',
+    ip_address: '164.109.21.41',
+    age: 7
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1e"),
+    id: 6,
+    first_name: 'Vasili',
+    last_name: 'Renehan',
+    email: 'vrenehan5@thetimes.co.uk',
+    gender: 'Female',
+    ip_address: '96.203.207.105',
+    age: 31
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1f"),
+    id: 7,
+    first_name: 'Becki',
+    last_name: 'Corsar',
+    email: 'bcorsar6@samsung.com',
+    gender: 'Female',
+    ip_address: '42.192.237.1',
+    age: 5
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11
+  }
+]
+test> db.users.find({})
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae19"),
+    id: 1,
+    first_name: 'Charles',
+    last_name: 'Simison',
+    email: 'csimison0@mapy.cz',
+    gender: 'Male',
+    ip_address: '16.22.220.48',
+    age: 9
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1a"),
+    id: 2,
+    first_name: 'Merilyn',
+    last_name: 'Stearndale',
+    email: 'mstearndale1@nymag.com',
+    gender: 'Female',
+    ip_address: '164.109.21.41',
+    age: 7
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1e"),
+    id: 6,
+    first_name: 'Vasili',
+    last_name: 'Renehan',
+    email: 'vrenehan5@thetimes.co.uk',
+    gender: 'Female',
+    ip_address: '96.203.207.105',
+    age: 31
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1f"),
+    id: 7,
+    first_name: 'Becki',
+    last_name: 'Corsar',
+    email: 'bcorsar6@samsung.com',
+    gender: 'Female',
+    ip_address: '42.192.237.1',
+    age: 5
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11
+  }
+]
+test> db.users.find({first_name:bekki})
+ReferenceError: bekki is not defined
+test> db.users.find({id"9})
+Uncaught:
+SyntaxError: Unterminated string constant. (1:17)
+
+> 1 | db.users.find({id"9})
+    |                  ^
+  2 |
+
+test> db.users.findOne({id"9})
+Uncaught:
+SyntaxError: Unterminated string constant. (1:20)
+
+> 1 | db.users.findOne({id"9})
+    |                     ^
+  2 |
+
+test> db.users.findOne({id:"9})
+Uncaught:
+SyntaxError: Unterminated string constant. (1:21)
+
+> 1 | db.users.findOne({id:"9})
+    |                      ^
+  2 |
+
+test> db.users.findOne({id:9})
+{
+  _id: ObjectId("6200eb347860b412f8c1ae21"),
+  id: 9,
+  first_name: 'Madlen',
+  last_name: 'Lemanu',
+  email: 'mlemanu8@ocn.ne.jp',
+  gender: 'Male',
+  ip_address: '220.16.238.228',
+  age: 22
+}
+test> db.users.find({id:9})
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  }
+]
+test> db.users.find({first_name:"madlen"})
+
+test> db.users.findOne({first_name:"madlen"})
+null
+test> db.users.findOne({first_name:"Madlen"})
+{
+  _id: ObjectId("6200eb347860b412f8c1ae21"),
+  id: 9,
+  first_name: 'Madlen',
+  last_name: 'Lemanu',
+  email: 'mlemanu8@ocn.ne.jp',
+  gender: 'Male',
+  ip_address: '220.16.238.228',
+  age: 22
+}
+test> db.users.find({age:{$gte:10}})
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1e"),
+    id: 6,
+    first_name: 'Vasili',
+    last_name: 'Renehan',
+    email: 'vrenehan5@thetimes.co.uk',
+    gender: 'Female',
+    ip_address: '96.203.207.105',
+    age: 31
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11
+  }
+]
+test> db.users.find({age:{$gte:10}}).count()
+7
+test> db.users.find({age:{$gte:20}}).count()
+6
+test> db.users.find({age:{$gte:20}},{email:1,_id:0}).count()
+6
+test> db.users.find({age:{$gte:20}},{email:1,_id:0})
+[
+  { email: 'nbrigdale2@theguardian.com' },
+  { email: 'llansdown3@meetup.com' },
+  { email: 'ltrime4@hud.gov' },
+  { email: 'vrenehan5@thetimes.co.uk' },
+  { email: 'uwasielewski7@comcast.net' },
+  { email: 'mlemanu8@ocn.ne.jp' }
+]
+test> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+test> db.users.update({id:10},{$set:{name:"Veekshith"}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+test> db.users.find({id:10})
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11,
+    name: 'Veekshith'
+  }
+]
+test> 
+
+test> db.users.find()
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae19"),
+    id: 1,
+    first_name: 'Charles',
+    last_name: 'Simison',
+    email: 'csimison0@mapy.cz',
+    gender: 'Male',
+    ip_address: '16.22.220.48',
+    age: 9
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1a"),
+    id: 2,
+    first_name: 'Merilyn',
+    last_name: 'Stearndale',
+    email: 'mstearndale1@nymag.com',
+    gender: 'Female',
+    ip_address: '164.109.21.41',
+    age: 7
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1e"),
+    id: 6,
+    first_name: 'Vasili',
+    last_name: 'Renehan',
+    email: 'vrenehan5@thetimes.co.uk',
+    gender: 'Female',
+    ip_address: '96.203.207.105',
+    age: 31
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1f"),
+    id: 7,
+    first_name: 'Becki',
+    last_name: 'Corsar',
+    email: 'bcorsar6@samsung.com',
+    gender: 'Female',
+    ip_address: '42.192.237.1',
+    age: 5
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae22"),
+    id: 10,
+    first_name: 'Bekki',
+    last_name: 'Sumnall',
+    email: 'bsumnall9@imageshack.us',
+    gender: 'Female',
+    ip_address: '100.251.70.152',
+    age: 11,
+    name: 'Veekshith'
+  },
+  { _id: ObjectId("6200f03aea71d1c625de5874"), first: 'gandhi' }
+]
+test> db.users.remove({id:10})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+test> db.users.remove({id:6})
+{ acknowledged: true, deletedCount: 1 }
+test> db.users.find().count()
+9
+test> db.users.find()
+[
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae19"),
+    id: 1,
+    first_name: 'Charles',
+    last_name: 'Simison',
+    email: 'csimison0@mapy.cz',
+    gender: 'Male',
+    ip_address: '16.22.220.48',
+    age: 9
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1a"),
+    id: 2,
+    first_name: 'Merilyn',
+    last_name: 'Stearndale',
+    email: 'mstearndale1@nymag.com',
+    gender: 'Female',
+    ip_address: '164.109.21.41',
+    age: 7
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1b"),
+    id: 3,
+    first_name: 'Nicolai',
+    last_name: 'Brigdale',
+    email: 'nbrigdale2@theguardian.com',
+    gender: 'Male',
+    ip_address: '190.186.119.22',
+    age: 36
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1c"),
+    id: 4,
+    first_name: 'Lainey',
+    last_name: 'Lansdown',
+    email: 'llansdown3@meetup.com',
+    gender: 'Female',
+    ip_address: '123.61.34.209',
+    age: 57
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1d"),
+    id: 5,
+    first_name: 'Laurie',
+    last_name: 'Trime',
+    email: 'ltrime4@hud.gov',
+    gender: 'Male',
+    ip_address: '253.194.132.231',
+    age: 34
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae1f"),
+    id: 7,
+    first_name: 'Becki',
+    last_name: 'Corsar',
+    email: 'bcorsar6@samsung.com',
+    gender: 'Female',
+    ip_address: '42.192.237.1',
+    age: 5
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae20"),
+    id: 8,
+    first_name: 'Udall',
+    last_name: 'Wasielewski',
+    email: 'uwasielewski7@comcast.net',
+    gender: 'Male',
+    ip_address: '65.81.95.247',
+    age: 48
+  },
+  {
+    _id: ObjectId("6200eb347860b412f8c1ae21"),
+    id: 9,
+    first_name: 'Madlen',
+    last_name: 'Lemanu',
+    email: 'mlemanu8@ocn.ne.jp',
+    gender: 'Male',
+    ip_address: '220.16.238.228',
+    age: 22
+  },
+  { _id: ObjectId("6200f03aea71d1c625de5874"), first: 'gandhi' }
+]
+test> db.users.deleteMany({age:{$gte:20}})
+{ acknowledged: true, deletedCount: 5 }
+test> db.dropDatabase()
+{ ok: 1, dropped: 'test' }
+test> show dbs
+admin     41 kB
+config  98.3 kB
+local     41 kB
+masai   73.7 kB
+test> 
+
