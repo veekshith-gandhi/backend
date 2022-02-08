@@ -1,0 +1,373 @@
+airbnb> db.data.find({$or:[{"address.country_code":"BR"},{"address.country_code":"US"}]},{"address.street":1,_id:0,})
+[
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Brooklyn, NY, United States' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Brooklyn, NY, United States' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'New York, NY, United States' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Honolulu, HI, United States' } },
+  { address: { street: 'New York, NY, United States' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'New York, NY, United States' } },
+  { address: { street: 'New York, NY, United States' } },
+  { address: { street: 'New York, NY, United States' } },
+  { address: { street: 'Brooklyn, NY, United States' } },
+  { address: { street: 'Queens, NY, United States' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Rio de Janeiro, Rio de Janeiro, Brazil' } },
+  { address: { street: 'Kailua-Kona, HI, United States' } }
+]
+Type "it" for more
+
+airbnb> db.data.find({$and:[{"address.country_code":"BR"},{"review_scores.review_scores_rating":{$gte:70}}]},{"review_scores":1,_id:0,})
+[
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 98
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 6,
+      review_scores_checkin: 8,
+      review_scores_communication: 8,
+      review_scores_location: 8,
+      review_scores_value: 8,
+      review_scores_rating: 80
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 9,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 92
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 8,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 99
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 8,
+      review_scores_cleanliness: 8,
+      review_scores_checkin: 8,
+      review_scores_communication: 8,
+      review_scores_location: 8,
+      review_scores_value: 8,
+      review_scores_rating: 80
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 98
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 98
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 9,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 95
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 95
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 91
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 95
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 95
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 9,
+      review_scores_checkin: 9,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 9,
+      review_scores_rating: 100
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 10,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 10,
+      review_scores_value: 10,
+      review_scores_rating: 94
+    }
+  },
+  {
+    review_scores: {
+      review_scores_accuracy: 9,
+      review_scores_cleanliness: 10,
+      review_scores_checkin: 10,
+      review_scores_communication: 10,
+      review_scores_location: 9,
+      review_scores_value: 8,
+      review_scores_rating: 100
+    }
+  }
+]
+Type "it" for more
+airbnb> 
+airbnb> db.data.find({$and:[{$or:[{"address.country_code":"BR"},{"address.country_code":"CA"}]},{"review_scores.review_scores_rating":{$eq:99}}]},{"address.country_code":1,_id:0,"review_scores.review_scores_rating":1})
+[
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'BR' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'CA' },
+    review_scores: { review_scores_rating: 99 }
+  }
+]
+Type "it" for more
+airbnb> 
+airbnb> db.data.find({$and:[{$or:[{"address.country_code":"US"},{"review_scores.review_scores_rating":{$eq:95}}]},{$or:[{"address.country_code":"IN"},{"review_scores.review_scores_rating":{$eq:99}}]}]},{"address.country_code":1,_id:0,"review_scores.review_scores_rating":1})
+[
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+    address: { country_code: 'US' },
+    review_scores: { review_scores_rating: 99 }
+  },
+  {
+
+Type "it" for more
+airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities":{$all:["Wifi"]}},{amenities:1}).count()
+1200
+airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities":{$all:["Wifi","Shampoo"]}},{amenities:1}).count()
+857
+airbnb> 
+
+
+
+

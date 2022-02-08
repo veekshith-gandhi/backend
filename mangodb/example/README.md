@@ -65,3 +65,24 @@ db.users.deleteOne({name:value})
 ## delet database
 
 db.dropDatabase()
+
+## nested find search
+
+db.users.find({'addres.country_code':"US","review.reviews_score":{$gte:40}},{name:1,id:0})
+
+## import
+
+{ come out of the mango shell }
+mongoimport --db airbnb --collection data --file /home/veekshith/Desktop/backend/mangodb/airbnb/airbnb.json --port 27017
+
+## problems
+
+## test> db.data.find({$and:[{"address.country_code":"BR"},{"review_scores.review_scores_ratings":{$gte:70}}]},{"review_scores":1,\_id:0,})
+
+airbnb> db.data.find({$and:[{$or:[{"address.country_code":"BR"},{"address.country_code":"CA"}]},{"review_scores.review_scores_rating":{$eq:99}}]},{"address.country_code":1,\_id:0,"review_scores.review_scores_rating":1})
+
+airbnb> db.data.find({$and:[{$or:[{"address.country_code":"US"},{"review_scores.review_scores_rating":{$eq:95}}]},{$or:[{"address.country_code":"IN"},{"review_scores.review_scores_rating":{$eq:99}}]}]},{"address.country_code":1,\_id:0,"review_scores.review_scores_rating":1})
+
+--array of values
+airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities.0":"wifi"},{amenities:1}).count()
+airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities":{$all:["Wifi","Shampoo"]}},{amenities:1}).count()
