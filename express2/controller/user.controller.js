@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
+//dd
 const getuser = (req, res) => {
   const file = fs.readFile(
     path.join(__dirname, "..", "db.json"),
