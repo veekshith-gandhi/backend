@@ -53,7 +53,7 @@ const addBook = (req, res) => {
           res.send({
             books: newBooks,
             request_time: req.request_time,
-            responsetime: Date.now(),
+            responsetime: Date.now()
           });
         }
       );
@@ -103,20 +103,25 @@ const editBook = (req, res) => {
         return res.send(err);
       }
       const db = JSON.parse(data);
-      const book = db.find((each) => each.id == req.params.id);
-      const result = book.map((ele) => ({ ...ele, payload }));
-      console.log(result);
+    const newbook = db.map((book)=>{
+      if(req.params.id==book.id){
+        if(req?.body?.author_name) book.author_name=req.body.author_name
+        if(req?.body?.book_name) book.book_name=req.body.book_name
+        if(req?.body?.pages) book.pages=req.body.pages
 
+      }
+      return book
+    })
       // const newBooks = { ...book, payload };
 
       fs.writeFile(
         path.join(__dirname, "..", "db.json"),
-        JSON.stringify(newBooks),
+        JSON.stringify(newbook),
         (err, data) => {
           if (err) {
             return res.send(err);
           }
-          res.send(newBooks);
+          res.send(newbook);
         }
       );
     }

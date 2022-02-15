@@ -77,12 +77,23 @@ mongoimport --db airbnb --collection data --file /home/veekshith/Desktop/backend
 
 ## problems
 
-## test> db.data.find({$and:[{"address.country_code":"BR"},{"review_scores.review_scores_ratings":{$gte:70}}]},{"review_scores":1,\_id:0,})
+## projection {2nd object}
+{projecting the info based on the input that u have }
+---db.data.find({'address.country_code':"US"},{"address.country_code":1,_id:0,name:1}).pretty()
 
+## {limits gretater then}
+ db.data.find({$and:[{"address.country_code":"BR"},{"review_scores.review_scores_ratings":{$gte:70}}]},{"review_scores":1,\_id:0,})
+
+## {multiple checks on diff loc using {or ,and ,not}}
 airbnb> db.data.find({$and:[{$or:[{"address.country_code":"BR"},{"address.country_code":"CA"}]},{"review_scores.review_scores_rating":{$eq:99}}]},{"address.country_code":1,\_id:0,"review_scores.review_scores_rating":1})
+
+{$and:[{condition},{$or:[{condition},{condition}]}]}
 
 airbnb> db.data.find({$and:[{$or:[{"address.country_code":"US"},{"review_scores.review_scores_rating":{$eq:95}}]},{$or:[{"address.country_code":"IN"},{"review_scores.review_scores_rating":{$eq:99}}]}]},{"address.country_code":1,\_id:0,"review_scores.review_scores_rating":1})
 
---array of values
+## --array of values
 airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities.0":"wifi"},{amenities:1}).count()
+
+or
+
 airbnb> db.data.find({"address.country_code":{$eq:"US"},"amenities":{$all:["Wifi","Shampoo"]}},{amenities:1}).count()

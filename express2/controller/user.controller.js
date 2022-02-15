@@ -12,8 +12,8 @@ const getuser = (req, res) => {
       }
       const db = JSON.parse(data);
       const users = db.map((each) => ({ user: each.author_name, id: each.id }));
-      console.log(file);
-      res.status(200).json({ users });
+      // console.log(file);
+      res.status(200).json({users} );
     }
   );
 };
