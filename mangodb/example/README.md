@@ -73,9 +73,9 @@ db.users.find({'addres.country_code':"US","review.reviews_score":{$gte:40}},{nam
 ## import
 
 { come out of the mango shell }
-mongoimport --db airbnb --collection data --file /home/veekshith/Desktop/backend/mangodb/airbnb/airbnb.json --port 27017
+mongoimport --db airbnb --collection data --file /home/veekshith/Desktop/backend/mangodb/airbnb/airbnb.json --port 27017 --jsonArray
 
-## problems
+## problems 
 
 ## projection {2nd object}
 {projecting the info based on the input that u have }
