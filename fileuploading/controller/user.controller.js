@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Users = require("../models/users.model")
 const { body, validationResult } = require('express-validator');
+const  {render}  = require("ejs");
 
 /**
  * paggination
@@ -15,8 +16,9 @@ router.get("/", async (req, res) => {
     const page = req.query.page || 1
     const skip = page < 0 ? 0 : (page-1)*per_page
        const users = await Users.find().skip(skip).limit(per_page)
-       if(!users) return res.status(404).json({message:"users not found"})
-       res.status(200).json(users)
+    if (!users) return res.status(404).json({ message: "users not found" })
+    res.render("users",{users:users})
+      //  res.status(200).json(users)
    } catch (error) {
         return res.status(200).json({message :error})
    }
