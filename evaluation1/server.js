@@ -1,5 +1,5 @@
 const express = require("express")
-const userRouter = express.Router()
+const userRouter = require("./routes/user.route")
 const cors = require("cors")
 
 const  connect  = require("./config/db")
