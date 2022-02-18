@@ -1,0 +1,26 @@
+<html lang="en">
+
+<body>
+    <h1>users</h1>
+    <% users.forEach(users=>{ %>
+        <div>
+            <h2>
+                <%= users._id%>
+            </h2>
+            <h2>
+                <%= users.id%>
+            </h2>
+
+            <h2><%= users.company_name%></h2>
+            <p>
+                <%= users.email%>
+            </p>
+            <a href="/users/<%=users.id%>">details </a>
+
+        </div>
+        <%
+
+    })%>
+</body>
+
+</html>

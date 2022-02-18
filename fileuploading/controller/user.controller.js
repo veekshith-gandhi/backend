@@ -2,52 +2,41 @@ const express = require("express")
 const router = express.Router()
 
 const Users = require("../models/users.model")
-const { body, validationResult } = require('express-validator');
-const  {render}  = require("ejs");
+// const  {render}  = require("ejs");
 
 /**
  * paggination
  */
 
-router.get("/", async (req, res) => {
-    
+const getUser = async (req, res) => {
   try {
     const per_page = req.query.per_page || 5
     const page = req.query.page || 1
     const skip = page < 0 ? 0 : (page-1)*per_page
        const users = await Users.find().skip(skip).limit(per_page)
     if (!users) return res.status(404).json({ message: "users not found" })
-    res.render("users",{users:users})
+     res.render("users",{users:users})
       //  res.status(200).json(users)
    } catch (error) {
         return res.status(200).json({message :error})
-   }
-    
-})
+   }  
+}
 
-router.get("/:id", async (req, res) => {
-
+const getUserById = async (req, res) => {
   try {
       const user = await Users.findOne({ id: req.params.id })
       if(!user) return res.status(404).json({message:"user not found"})
-      res.status(200).json(user)
+      // res.status(200).json(user)
+      res.render("singleUser",{user:user})
   } catch (error) {
     return  res.status(200).json({message :error})
-  }
-    
-})
+  } 
+}
 
-router.post("/", 
-  body('company_name')
-    .not()
-    .isEmpty()
-    .withMessage("Name required"),
-  body('ratings')
-    .isLength({ min: 2 })
-    .withMessage("minimum 2")
-, async (req, res) => {
 
-    try {
+const postUser=async (req, res) => {
+  try {
+      // console.log(req.file)
       //validator
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -67,16 +56,16 @@ router.post("/",
       location: req.body.location,
       country_code:req.body.country_code,    
   })
-    if (!user) return res.status(404).json({ message: "user not found" })
+      if (!user) return res.status(404).json({ message: "user not found" })
+      console.log(user)
      res.status(200).json(user)
       
   } catch (error) {
         return  res.status(200).json({message :error})
       
   }
-})
-
-router.delete("/:id", async (req, res) => {
+}
+const deletById=async (req, res) => {
 
    try { 
      const user = await Users.findOneAndDelete({ _id: req.params.id })
@@ -86,9 +75,9 @@ router.delete("/:id", async (req, res) => {
         return  res.status(200).json({message :error})
    }
     
-})
+}
 
-router.patch("/:id", async (req, res) => {
+const patchById= async (req, res) => {
 
    try { 
        const user = await Users.findOneAndUpdate(
@@ -108,6 +97,6 @@ router.patch("/:id", async (req, res) => {
         return  res.status(200).json({message :error})
    }
     
-})
+}
 
-module.exports = router
+module.exports = {patchById,deletById,postUser,getUserById,getUser}
