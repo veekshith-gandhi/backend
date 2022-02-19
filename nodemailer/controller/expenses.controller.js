@@ -3,7 +3,7 @@ const Expenses = require("../model/expenses.model")
 const expenses = async(req, res) => {
     try {
         const expenses = await Expenses.find()
-        if (expenses) res.status(200).json( expenses )
+        if (expenses) return res.status(200).json( expenses )
         res.status(401).json({status:"failur",msg :"no data"})
     } catch (error) {
         res.status(401).json({status:"failur",msg:error})
@@ -22,10 +22,10 @@ const expensesGrouped = async(req, res) => {
                 }
             }
         ])
-        if (expenses) res.status(200).json( expenses )
-        res.status(401).json({status:"failur",msg :"no data"})
+        if (expenses) return res.status(200).json( expenses )
+       return res.status(401).json({status:"failur",msg :"no data"})
     } catch (error) {
-        res.status(401).json({status:"failur",msg:error})
+       return res.status(401).json({status:"failur",msg:error})
     }
     
 }
@@ -48,10 +48,10 @@ const expensesLookup= async(req, res) => {
                 }
             }
         ])
-        if (expenses) res.status(200).json( expenses )
-        res.status(401).json({status:"failur",msg :"no data"})
+        if (expenses) return res.status(200).json( expenses )
+       return res.status(401).json({status:"failur",msg :"no data"})
     } catch (error) {
-        res.status(401).json({status:"failur",msg:error})
+        return res.status(401).json({status:"failur",msg:error})
     }
     
 }
