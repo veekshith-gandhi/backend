@@ -3,7 +3,8 @@ const path = require("path")
 
 /**
  * deskstorage allows you to store file in destination
- * 
+ * when u need to change the file u need multer
+ * couz 
  */
 const storage = multer.diskStorage({
     filename:function (req,file,callback) {
@@ -15,8 +16,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({
-    storage,
-   
+    storage
 })
 
 module.exports = upload

@@ -17,6 +17,7 @@ const signup = async (req, res) => {
         const idDoesNotExist = await Users.findOne({ email: req.body.email })
         if (idDoesNotExist) return res.status(404).json({ message: "user existed" })
         const user = await Users.create(req.body)
+        
         const token = generateToken(user)
         res.status(200).json({
             status: "success", data: {
