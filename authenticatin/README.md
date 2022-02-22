@@ -34,3 +34,27 @@ horizontal scalling
 ## npm install jsonwebtoken
 
 ## npm install dotenv
+
+## pasport.js authentication middleware of node js
+
+-- pasport-google-oauth20
+npm install passport-google-oauth20
+
+## npm install passport {for initializing in server page}
+
+## npm i express-session
+
+## steps
+
+google developers console
+get credentials
+install npm install passport-google-oauth20
+go to passport.js gitlink
+copy paste passport intialization and install {npm i passport}
+{install express-session}
+create routes open passsport,js and add routes
+do serialization for passport.js
+
+## npm i connect-mongo
+
+##
