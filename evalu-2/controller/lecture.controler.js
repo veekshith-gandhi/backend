@@ -3,11 +3,10 @@
 const Lecture = require("../models/lecture.model");
 
 const lectureInfo = async (req, res) => {
-  console.log(req.body);
   try {
     const lecture = await Lecture.create({
       title: req.body.title,
-      author_id: req.body.author_id,
+      author_id: req.id,
       batch: req.body.batch,
     });
     if (!lecture)

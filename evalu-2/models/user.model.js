@@ -5,12 +5,17 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   name: { type: String },
-  email: { type: String },
+  email: { type: String, unique: true },
   password: { type: String },
   profile_phot_url: { type: String },
-  roles: { type: String },
+  roles: {
+    type: String,
+    enum: ["instructor", "admin", "student"],
+    default: "student",
+  },
 });
-UserSchema.pre("save", function (next) {
+
+userSchema.pre("save", function (next) {
   if (!this.password) return next();
   bcrypt.hash(this.password, 10, (err, hash) => {
     if (err) return next(err);
@@ -19,12 +24,10 @@ UserSchema.pre("save", function (next) {
   });
 });
 
-UserSchema.methods.comparePassword = function (password) {
+userSchema.methods.comparePassword = function (password) {
   const hashedPassword = this.password;
   return bcrypt.compare(password, hashedPassword);
 };
-
-const Users = mongoose.model("users", UserSchema);
 
 const User = mongoose.model("users", userSchema);
 

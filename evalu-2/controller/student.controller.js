@@ -7,7 +7,7 @@ const studentInfo = async (req, res) => {
   try {
     const student = await Student.create({
       roll_no: req.body.roll_no,
-      user: req.body.user,
+      user: req.id,
       batch: req.body.batch,
     });
     if (!student) return res.status(404).json({ message: "student not found" });
